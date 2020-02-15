@@ -9,7 +9,7 @@
 import Foundation
 
 class ComicFeed: ObservableObject, RandomAccessCollection {
-    // NewsListItem ==== ComicPost
+    
     typealias Element = ComicPost
     
     @Published var comicListItems = [ComicPost]()
@@ -18,7 +18,7 @@ class ComicFeed: ObservableObject, RandomAccessCollection {
     
     var startIndex: Int { comicListItems.startIndex }
     var endIndex: Int { comicListItems.endIndex }
-
+    
     var urlBase = "https://xkcd.com/"
     
     init() {
@@ -44,8 +44,8 @@ class ComicFeed: ObservableObject, RandomAccessCollection {
         let urlString = "\(urlBase)\(page)/info.0.json"
         
         // can be written more efficiently
-//        if currentItem == nil {
-//        }
+        //        if currentItem == nil {
+        //        }
         
         let url = URL(string: urlString)!
         let task = URLSession.shared.dataTask(with: url, completionHandler: parseComicsFromResponse(data:response:error:))
@@ -92,21 +92,16 @@ class ComicFeed: ObservableObject, RandomAccessCollection {
     }
     
     func parseComicsFromData(data: Data) -> [ComicPost] {
-            var response: ComicPost
-            do {
-                response = try JSONDecoder().decode(ComicPost.self, from: data)
-            } catch {
-                print("Error parsing the JSON: \(error)")
-                return []
-            }
-            
-    //        if response.status != "ok" {
-    //            print("Status is not ok: \(response.status)")
-    //            return []
-    //        }
-            
-            return [response] ?? []
+        var response: ComicPost
+        do {
+            response = try JSONDecoder().decode(ComicPost.self, from: data)
+        } catch {
+            print("Error parsing the JSON: \(error)")
+            return []
         }
+        
+        return [response]
+    }
     
     enum LoadStatus {
         case ready (nextPage: Int)
@@ -116,14 +111,14 @@ class ComicFeed: ObservableObject, RandomAccessCollection {
     }
     
     func getLastNum() {
-            guard let url = URL(string: "https://xkcd.com/info.0.json") else { fatalError("URL is not working") }
-            URLSession.shared.dataTask(with: url) { (data, _, _) in
-                let latestComic = try! JSONDecoder().decode(MaxComicNum.self, from: data!)
-                DispatchQueue.main.async {
-                    self.latestNum = latestComic.num
-                    print(self.latestNum)
-                }
-            }.resume()
+        guard let url = URL(string: "https://xkcd.com/info.0.json") else { fatalError("URL is not working") }
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            let latestComic = try! JSONDecoder().decode(MaxComicNum.self, from: data!)
+            DispatchQueue.main.async {
+                self.latestNum = latestComic.num
+                print(self.latestNum)
+            }
+        }.resume()
     }
     
 }

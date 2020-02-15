@@ -98,10 +98,7 @@
 				5033200523F801F2007E51D2 /* View */,
 				5033200223F801EA007E51D2 /* Utilities */,
 				50331FF723F80136007E51D2 /* Models */,
-				50331FD523F80113007E51D2 /* AppDelegate.swift */,
-				50331FD723F80113007E51D2 /* SceneDelegate.swift */,
-				50331FDB23F80115007E51D2 /* Assets.xcassets */,
-				50331FE023F80115007E51D2 /* LaunchScreen.storyboard */,
+				5033200E23F8076B007E51D2 /* Support */,
 				50331FE323F80115007E51D2 /* Info.plist */,
 				50331FDD23F80115007E51D2 /* Preview Content */,
 			);
@@ -153,6 +150,17 @@
 				5033200923F801F2007E51D2 /* ContentView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5033200E23F8076B007E51D2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				50331FD523F80113007E51D2 /* AppDelegate.swift */,
+				50331FD723F80113007E51D2 /* SceneDelegate.swift */,
+				50331FDB23F80115007E51D2 /* Assets.xcassets */,
+				50331FE023F80115007E51D2 /* LaunchScreen.storyboard */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
