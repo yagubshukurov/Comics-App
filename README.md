@@ -4,6 +4,7 @@ SwiftUI project
 
 ## Features
 * Pagination of comics with thumbnails 
+* Caching of images
 * Details of comics
 * Search comics
 * Totally implemented in SwiftUI
