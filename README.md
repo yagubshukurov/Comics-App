@@ -1,4 +1,4 @@
-# HW
+# Comics App
 
 SwiftUI project
 
