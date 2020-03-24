@@ -2,10 +2,6 @@
 
 SwiftUI project
 
-## Commits of the project
-Messed up with git commits in terminal. This project is commited from xcode. 
-To look at commits please look [at this previous repository](https://github.com/yagubshukurov/SwiftUI/commits/master).
-
 ## Features
 * Pagination of comics with thumbnails 
 * Details of comics
